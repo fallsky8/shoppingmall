@@ -3,6 +3,7 @@ package bookshop.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.MngrDBBean;
 import bookshop.process.CommandAction;
 
 public class QnaFormAction implements CommandAction {
