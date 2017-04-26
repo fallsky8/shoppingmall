@@ -262,26 +262,53 @@ public class LogonDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int x = -1;
-		
+
 		SHA256 sha = SHA256.getInsatnce();
-		try{
+		try {
 			conn = getConnection();
-			
+
 			String orgPass = member.getPasswd();
 			String shaPass = sha.getSha256(orgPass.getBytes());
-			
-			pstmt=conn.prepareStatement("select passwd from member where id = ?");
+
+			pstmt = conn.prepareStatement("select passwd from member where id = ?");
 			pstmt.setString(1, member.getId());
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()){//해당 아이디가 있으면 수행
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {// 해당 아이디가 있으면 수행
 				String dbpasswd = rs.getString("passwd");
-				if(BCrypt.checkpw(shaPass, dbpasswd)){
-					pstmt=conn.prepareStatement("update member set name=?,address=?,tel=? where id=?");
+				if (BCrypt.checkpw(shaPass, dbpasswd)) {
+					pstmt = conn.prepareStatement("update member set name=?,address=?,tel=? where id=?");
 					pstmt.setString(1, member.getName());
-				}
+					pstmt.setString(2, member.getAddress());
+					pstmt.setString(3, member.getTel());
+					pstmt.setString(4, member.getId());
+					pstmt.executeUpdate();
+					x = 1;// 회원 정보 수정 처리 성공
+				} else
+					x = 0;// 회원 정보 수정 처리 실패
 			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
 		}
+		return x;
 	}
+	
+	//회원 정보를 삭제하는 메소드
 
 }
