@@ -24,6 +24,6 @@
 		<li class="label2">
 			<button id="regist">등록</button>
 			<button id="cancle">취소</button>
-	</ul>
+	</ul>   
 </div>
 

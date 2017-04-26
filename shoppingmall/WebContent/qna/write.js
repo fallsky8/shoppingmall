@@ -23,7 +23,7 @@
 	 			var query = "/shoppingmall/bookContent.do?book_id="+book_id;
 	 			query += "&book_kind="+book_kind;
 	 			window.location.href(query);
-	 			}else
+	 			}else  
 	 				alert("QnA 등록실패");
 	 			}
 	 	});

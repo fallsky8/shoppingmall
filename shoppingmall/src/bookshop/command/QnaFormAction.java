@@ -27,5 +27,5 @@ public class QnaFormAction implements CommandAction {
 		
 		return "/qna/qnaForm.jsp";  
 	}
-
+   
 }
