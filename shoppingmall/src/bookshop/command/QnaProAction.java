@@ -17,7 +17,11 @@ public class QnaProAction implements CommandAction {
 		String book_title = request.getParameter("book_title");
 		String qna_content = request.getParameter("qna_content");
 		int book_id = Integer.parseInt(request.getParameter("book_id"));
-		Byte qora = Byte.parseByte(request.getParameter(arg0))
+		Byte qora = Byte.parseByte(request.getParameter("qora"));
+		byte reply = 0; //답변 여부 - 미답변
+		
+		//qna를 추가하기 위한 정보 작성
+		QnaDataBean qna 
 		return null;
 	}
 

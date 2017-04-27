@@ -26,7 +26,8 @@ public class QnaFormAction implements CommandAction {
 		request.setAttribute("qora", new Integer(1));
 		request.setAttribute("type", new Integer(1));
 		
-		return "/qna/qnaForm.jsp";  
+		return "/qna/qnaForm.jsp"; 
+		     
 	}
    
 }
