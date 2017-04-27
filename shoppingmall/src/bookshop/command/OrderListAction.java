@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.BuyDBBean;
+import bookshop.bean.BuyDataBean;
 import bookshop.process.CommandAction;
 
 public class OrderListAction implements CommandAction {
