@@ -98,13 +98,13 @@ public class MngrDBBean {
 			pstmt.setString(1, book.getBook_kind());
 			pstmt.setString(2, book.getBook_title());
 			pstmt.setInt(3, book.getBook_price());
-			pstmt.setShort(4, book.getBook_count());
+			pstmt.setInt(4, book.getBook_count());
 			pstmt.setString(5, book.getAuthor());
 			pstmt.setString(6, book.getPublishing_com());
 			pstmt.setString(7, book.getPublishing_date());
 			pstmt.setString(8, book.getBook_image());
 			pstmt.setString(9, book.getBook_content());
-			pstmt.setByte(10, book.getDiscount_rate());
+			pstmt.setInt(10, book.getDiscount_rate());
 			pstmt.setTimestamp(11, book.getReg_date());
 
 			pstmt.executeUpdate();
@@ -484,13 +484,13 @@ public class MngrDBBean {
 			pstmt.setString(1, book.getBook_kind());
 			pstmt.setString(2, book.getBook_title());
 			pstmt.setInt(3, book.getBook_price());
-			pstmt.setShort(4, book.getBook_count());
+			pstmt.setInt(4, book.getBook_count());
 			pstmt.setString(5, book.getAuthor());
 			pstmt.setString(6, book.getPublishing_com());
 			pstmt.setString(7, book.getPublishing_date());
 			pstmt.setString(8, book.getBook_image());
 			pstmt.setString(9, book.getBook_content());
-			pstmt.setByte(10, book.getDiscount_rate());
+			pstmt.setInt(10, book.getDiscount_rate());
 			pstmt.setInt(11, bookId);
 
 			pstmt.executeUpdate();
