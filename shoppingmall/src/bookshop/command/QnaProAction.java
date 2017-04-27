@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.QnaDBBean;
+import bookshop.bean.QnaDataBean;
 import bookshop.process.CommandAction;
 
 public class QnaProAction implements CommandAction {

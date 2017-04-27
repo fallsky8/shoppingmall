@@ -35,7 +35,7 @@ public class QnaDBBean {
 
 	// qna 테이블에 글을 추가 - 사용자가 작성하는 글
 	@SuppressWarnings("resource")
-	public int insertAticle(QnaDataBean article) {
+	public int insertArticle(QnaDataBean article) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -368,7 +368,7 @@ public class QnaDBBean {
 	}
 	// QnA 글 수정 폼에서 사용할 글의 내용
 
-	public QnaDataBean updateGetAricle(int qna_id) {
+	public QnaDataBean updateGetArticle(int qna_id) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -377,7 +377,7 @@ public class QnaDBBean {
 		try {
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("select *from qna where qna_id=?");
+			pstmt = conn.prepareStatement("select * from qna where qna_id=?");
 			pstmt.setInt(1, qna_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -422,7 +422,7 @@ public class QnaDBBean {
 
 	// QnA 글 수정 처리에서 사용
 
-	public int updateGetAricle(QnaDataBean article) {
+	public int updateArticle(QnaDataBean article) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
