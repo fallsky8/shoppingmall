@@ -3,6 +3,7 @@ package bookshop.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.QnaDBBean;
 import bookshop.process.CommandAction;
 
 public class QnaDeleteProAction implements CommandAction {
@@ -15,7 +16,7 @@ public class QnaDeleteProAction implements CommandAction {
 
 		// qna_id에 해당하는 qna삭제
 		QnaDBBean qnaProcess = QnaDBBean.getInstance();
-		int check = qnaProcess.updateArticle(qna_id);
+		int check = qnaProcess.deleteArticle(qna_id);
 
 		request.setAttribute("check", new Integer(check));
 		return "/qna/qnaDeletePro.jsp";
