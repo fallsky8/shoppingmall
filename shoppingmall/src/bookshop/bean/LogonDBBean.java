@@ -308,7 +308,54 @@ public class LogonDBBean {
 		}
 		return x;
 	}
-	
-	//회원 정보를 삭제하는 메소드
+
+	// 회원 정보를 삭제하는 메소드
+	@SuppressWarnings("resource")
+	public int deleteMember(String id, String passwd) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+
+		SHA256 sha = SHA256.getInsatnce();
+		try {
+			conn = getConnection();
+			String orgPass = passwd;
+			String shaPass = sha.getSha256(orgPass.getBytes());
+			pstmt = conn.prepareStatement("select passwd from member where id=?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String dbpasswd = rs.getString("passwd");
+				if (BCrypt.checkpw(shaPass, dbpasswd)) {
+					pstmt = conn.prepareStatement("delete from member where id=?");
+					pstmt.setString(1, id);
+					pstmt.executeUpdate();
+					x = 1;// 회원 탈퇴 처리 성공
+				} else
+					x = 0;// 회원 탈퇴 처리 실패
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return x;
+	}
 
 }
