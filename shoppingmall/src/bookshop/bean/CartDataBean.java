@@ -6,7 +6,7 @@ public class CartDataBean {
 	private int book_id; // 구매된 책의 아이디
 	private String book_title; // 구매된 책명
 	private int buy_price; // 판매가
-	private byte buy_count; // 판매 수량
+	private int buy_count; // 판매 수량
 	private String book_image; // 책이미지
 
 	public int getCart_id() {
@@ -49,11 +49,11 @@ public class CartDataBean {
 		this.buy_price = buy_price;
 	}
 
-	public byte getBuy_count() {
+	public int getBuy_count() {
 		return buy_count;
 	}
 
-	public void setBuy_count(byte buy_count) {
+	public void setBuy_count(int buy_count) {
 		this.buy_count = buy_count;
 	}
 

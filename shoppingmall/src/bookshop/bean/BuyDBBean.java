@@ -79,7 +79,7 @@ public class BuyDBBean {
 		String todayDate = "";
 		String compareDate = "";
 		long buyId = 0;
-		short nowCount;
+		int nowCount;
 		try {
 			conn = getConnection();
 			reg_date = new Timestamp(System.currentTimeMillis());
@@ -138,11 +138,11 @@ public class BuyDBBean {
 				rs = pstmt.executeQuery();
 				rs.next();
 
-				nowCount = (short) (rs.getShort(1) - 1); // 실무에서는 구매 수량을 뺄 것
+				nowCount = (int) (rs.getInt(1) - 1); // 실무에서는 구매 수량을 뺄 것
 
 				sql = "update book set book_count=? where book-id=?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setShort(1, nowCount);
+				pstmt.setInt(1, nowCount);
 				pstmt.setInt(2, cart.getBook_id());
 
 				pstmt.executeUpdate();
