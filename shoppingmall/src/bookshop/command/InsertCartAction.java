@@ -14,7 +14,7 @@ public class InsertCartAction implements CommandAction {
 		request.setCharacterEncoding("utf-8");
 
 		// 장바구니에 추가할 정보를 파라미터에서 받아냄
-		byte buy_count = Byte.parseByte(request.getParameter("buy_count"));
+		int buy_count =Integer.parseInt(request.getParameter("buy_count"));
 		int book_id = Integer.parseInt(request.getParameter("book_id"));
 		String book_title = request.getParameter("book_title");
 		String book_image = request.getParameter("book_image");

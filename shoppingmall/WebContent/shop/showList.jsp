@@ -39,10 +39,12 @@
 			<tr height="30">
 				<td rowspan="4" width="100"><a
 					href="/shoppingmall/bookContent.do?book_id=${book.getBook_id() }&book_kind=${book.getBook_kind()}">
-						<img
-						src="/shoppingmall/bookImage/${book.getBook_id() }&book_kind=${book.getBook_kind()}"
-						class="b"> ${book.getBook_title() }
+						<img src="/shoppingmall/bookImage/${book.getBook_image() }"
+						class="listimage"> ${book.getBook_title() }
 				</a></td>
+				<td width="350" class="vhcenter"><a
+					href="/shoppingmall/bookContent.do?book_id=${book.getBook_id() }&book_kind=${book.getBook_kind()}"
+					class="b">${book.getBook_title() }</a></td>
 				<td rowspan="4" width="100"><c:if
 						test="${book.getBook_count()==0 }">
 				일시품절

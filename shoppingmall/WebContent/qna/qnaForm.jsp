@@ -10,7 +10,7 @@
 	<meta http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
 </c:if>
 
-<input type="hidden" id="qna_writer" value="${sesstionScope.id}">
+<input type="hidden" id="qna_writer" value="${sessionScope.id}">
 <input type="hidden" id="book_kind" value="${book_kind}">
 <input type="hidden" id="book_id" value="${book_id}">
 <input type="hidden" id="book_title" value="${book_title}"> 
