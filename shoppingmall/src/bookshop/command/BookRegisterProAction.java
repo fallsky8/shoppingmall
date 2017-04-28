@@ -77,13 +77,13 @@ public class BookRegisterProAction implements CommandAction {
 		book.setBook_kind(book_kind);
 		book.setBook_title(book_title);
 		book.setBook_price(Integer.parseInt(book_price));
-		book.setBook_count(Short.parseShort(book_count));
+		book.setBook_count(Integer.parseInt(book_count));
 		book.setAuthor(author);
 		book.setPublishing_com(publishing_com);
 		book.setPublishing_date(year+"-"+month+"-"+day);
 		book.setBook_image(filename);
 		book.setBook_content(book_content);
-		book.setDiscount_rate(Byte.parseByte(discount_rate));
+		book.setDiscount_rate(Integer.parseInt(discount_rate));
 		book.setReg_date(new Timestamp(System.currentTimeMillis()));
 
 		//DB연동 - 넘어온 정보를 테이블의 레코드로 추가
