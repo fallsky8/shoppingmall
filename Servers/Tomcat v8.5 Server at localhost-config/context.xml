@@ -20,5 +20,6 @@
 	<!-- <Manager pathname="" /> -->
 	<Resource name="jdbc/jsptest" auth="Container" type="javax.sql.DataSource"
 		driverClassName="oracle.jdbc.driver.OracleDriver" username="scott"
-		password="tiger" url="jdbc:oracle:thin:@localhost:1521:orcl" maxWait="5000" />
+		password="tiger" url="jdbc:oracle:thin:@192.168.0.126:1521:orcl"
+		maxWait="5000" />
 </Context>
