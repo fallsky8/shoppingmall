@@ -66,6 +66,7 @@ public class BuyDBBean {
 	}
 
 	// 구매 테이블인 buy에 구매 목록 등록
+	@SuppressWarnings("resource")
 	public void insertBuy(List<CartDataBean> lists, String id, String account, String deliveryName, String deliveryTel,
 			String deliveryAddress) throws Exception {
 		Connection conn = null;

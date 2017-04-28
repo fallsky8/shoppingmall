@@ -72,7 +72,6 @@ public class QnaDBBean {
 			x = 1;// 레코드 추가 성공
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -134,7 +133,6 @@ public class QnaDBBean {
 			x = 1;// 레코드 추가 성공
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -177,7 +175,6 @@ public class QnaDBBean {
 				x = rs.getInt(1);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -222,7 +219,6 @@ public class QnaDBBean {
 				x = rs.getInt(1);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -282,7 +278,6 @@ public class QnaDBBean {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			if (rs != null)
@@ -343,7 +338,6 @@ public class QnaDBBean {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			if (rs != null)
@@ -394,7 +388,6 @@ public class QnaDBBean {
 
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -422,6 +415,7 @@ public class QnaDBBean {
 
 	// QnA 글 수정 처리에서 사용
 
+	@SuppressWarnings("null")
 	public int updateArticle(QnaDataBean article) {
 
 		Connection conn = null;
@@ -440,7 +434,6 @@ public class QnaDBBean {
 				x = rs.getInt(1);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -483,7 +476,6 @@ public class QnaDBBean {
 			x = 1;// 글 삭제 성공
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 		} finally {
