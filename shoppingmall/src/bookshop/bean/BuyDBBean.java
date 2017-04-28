@@ -122,7 +122,7 @@ public class BuyDBBean {
 				pstmt.setInt(3, cart.getBook_id());
 				pstmt.setString(4, cart.getBook_title());
 				pstmt.setInt(5, cart.getBuy_price());
-				pstmt.setByte(6, cart.getBuy_count());
+				pstmt.setInt(6, cart.getBuy_count());
 				pstmt.setString(7, cart.getBook_image());
 				pstmt.setTimestamp(8, reg_date);
 				pstmt.setString(9, account);
@@ -277,7 +277,7 @@ public class BuyDBBean {
 				buy.setBook_id(rs.getInt("book_id"));
 				buy.setBook_title(rs.getString("book_title"));
 				buy.setBuy_price(rs.getInt("buy_price"));
-				buy.setBuy_count(rs.getByte("buy_count"));
+				buy.setBuy_count(rs.getInt("buy_count"));
 				buy.setBook_image(rs.getString("book_image"));
 				buy.setSanction(rs.getString("sanction"));
 
@@ -331,7 +331,7 @@ public class BuyDBBean {
 				buy.setBook_id(rs.getInt("book_id"));
 				buy.setBook_title(rs.getString("book_title"));
 				buy.setBuy_price(rs.getInt("buy_price"));
-				buy.setBuy_count(rs.getByte("buy_count"));
+				buy.setBuy_count(rs.getInt("buy_count"));
 				buy.setBook_image(rs.getString("book_image"));
 				buy.setBuy_date(rs.getTimestamp("buy_date"));
 				buy.setAccount(rs.getString("account"));
