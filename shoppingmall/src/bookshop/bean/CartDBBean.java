@@ -130,7 +130,7 @@ public class CartDBBean {
 				cart.setBook_id(rs.getInt("book_id"));
 				cart.setBook_title(rs.getString("book_title"));
 				cart.setBuy_price(rs.getInt("buy_price"));
-				cart.setBuy_count(rs.getByte("buy_count"));
+				cart.setBuy_count(rs.getInt("buy_count"));
 				cart.setBook_image(rs.getString("book_image"));
 
 				lists.add(cart);
@@ -158,7 +158,7 @@ public class CartDBBean {
 	}
 
 	// 장바구니에서 수량 수정 시 실행되는 메소드
-	public void updateCount(int cart_id, byte count) throws Exception {
+	public void updateCount(int cart_id, int count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -166,7 +166,7 @@ public class CartDBBean {
 			conn = getConnection();
 
 			pstmt = conn.prepareStatement("update cart set buy_count=? where cart_id=?");
-			pstmt.setByte(1, count);
+			pstmt.setInt(1, count);
 			pstmt.setInt(2, cart_id);
 
 			pstmt.executeUpdate();

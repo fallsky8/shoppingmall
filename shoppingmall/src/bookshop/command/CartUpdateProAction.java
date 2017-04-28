@@ -12,7 +12,7 @@ public class CartUpdateProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("utf-8");
 		int cart_id = Integer.parseInt(request.getParameter("cart_id"));
-		byte buy_count = Byte.parseByte(request.getParameter("buy_count"));
+		int buy_count = Integer.parseInt(request.getParameter("buy_count"));
 
 		// cart_id에 해당하는 buy_count의 값을 수정
 		CartDBBean bookProcess = CartDBBean.getInstance();
