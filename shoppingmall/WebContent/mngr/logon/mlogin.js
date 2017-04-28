@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type : "POST",
-			url : "/shoppingmall/mngr/mLoginPro.do",
+			url : "/shoppingmall/mngr/logon/mLoginPro.do",
 			data : query,
 			success : function(data) {
 				window.location.href = "/shoppingmall/mngr/managerMain.do";
@@ -25,7 +25,7 @@ $(document).ready(function() {
 		$.ajax({
 
 			type : "POST",
-			url : "/shoppingmall/mngr/mLogout.do",
+			url : "/shoppingmall/mngr/logon/mLogout.do",
 			success : function(data) {
 				window.location.href = "/shoppingmall/mngr/managerMain.do";
 
