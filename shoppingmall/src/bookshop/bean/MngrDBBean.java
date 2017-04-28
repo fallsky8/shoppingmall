@@ -90,9 +90,9 @@ public class MngrDBBean {
 
 		try {
 			conn = getConnection();
-			String sql = "insert into book(book_kind,book_title,book_price,";
+			String sql = "insert into book(book_id,book_kind,book_title,book_price,";
 			sql += "book_count,author,publishing_com,publishing_date,book_image,";
-			sql += "book_content,discount_rate,reg_date) values (?,?,?,?,?,?,?,?,?,?,?)";
+			sql += "book_content,discount_rate,reg_date) values (book_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, book.getBook_kind());
