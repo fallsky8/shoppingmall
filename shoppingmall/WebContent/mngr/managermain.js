@@ -1,6 +1,6 @@
 var status = true;
 
-$(document).ready(function() {
+$(function() {
 	$("#registProduct").click(function() {// [상품등록]버튼 클릭
 		window.location.href = "/shoppingmall/mg/bookRegisterForm.do";
 	});
