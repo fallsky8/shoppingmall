@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import bookshop.bean.CartDBBean;
 import bookshop.process.CommandAction;
 
-public class cartUpdateProAction implements CommandAction {
+public class CartUpdateProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
