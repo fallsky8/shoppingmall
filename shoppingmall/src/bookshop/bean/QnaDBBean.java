@@ -72,7 +72,7 @@ public class QnaDBBean {
 			x = 1;// 레코드 추가 성공
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			//handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -134,7 +134,7 @@ public class QnaDBBean {
 			x = 1;// 레코드 추가 성공
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			//handle exception
 			e.printStackTrace();
 
 		} finally {
@@ -436,6 +436,7 @@ public class QnaDBBean {
 			pstmt.setInt(2, article.getQna_id());
 			pstmt.executeUpdate();
 			x = 1;
+			
 			if (rs.next())
 				x = rs.getInt(1);
 
