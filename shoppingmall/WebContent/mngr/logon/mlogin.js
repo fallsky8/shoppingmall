@@ -15,11 +15,11 @@ $(document)
 										$
 												.ajax({
 													type : "POST",
-													url : "/shoppingmall/mg/managerLoginPro.do",
+													url : "/shoppingmall/mngr/mLoginPro.do",
 													data : query,
 													success : function(data) {
 														window.location
-																.href="/shoppingmall/mg/manager/managerMain.do";
+																.href="/shoppingmall/mngr/manager/managerMain.do";
 													}
 
 												});
@@ -31,9 +31,9 @@ $(document)
 						$.ajax({
 							
 							type: "POST",
-							url: "/shoppingmall/mg/managerLogout.do",
+							url: "/shoppingmall/mngr/mLogout.do",
 							success: function(data){
-								window.location.href="/shoppingmall/mg/managerMain.do";
+								window.location.href="/shoppingmall/mngr/managerMain.do";
 								
 							}
 
