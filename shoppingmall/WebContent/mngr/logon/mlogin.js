@@ -1,38 +1,46 @@
-$(document).ready(function() {
+$(document)
+		.ready(
+				function() {
 
-	// [로그인]버튼을 클릭하면 자동 실행
-	$("#login").click(function() {
+					// [로그인]버튼을 클릭하면 자동 실행
+					$("#login")
+							.click(
+									function() {
 
-		var query = {
-			id : $("#id").val(),
-			passwd : $("#passwd").val()
-		};
+										var query = {
+											id : $("#id").val(),
+											passwd : $("#passwd").val()
+										};
 
-		$.ajax({
-			type : "POST",
-			url : "/shoppingmall/mngr/logon/mLoginPro.do",
-			data : query,
-			success : function(data) {
-				window.location.href = "/shoppingmall/mngr/managerMain.do";
-			}
+										$
+												.ajax({
+													type : "POST",
+													url : "/shoppingmall/mg/managerLoginPro.do",
+													data : query,
+													success : function(data) {
+														window.location.href = "/shoppingmall/mg/manager/managerMain.do";
+													}
 
-		});
-	});
+												});
+									});
 
-	// [로그아웃]버튼을 클릭하면 자동 실행
+					// [로그아웃]버튼을 클릭하면 자동 실행
 
-	$("#logout").click(function() {
-		$.ajax({
+					$("#logout")
+							.click(
+									function() {
+										$
+												.ajax({
 
-			type : "POST",
-			url : "/shoppingmall/mngr/logon/mLogout.do",
-			success : function(data) {
-				window.location.href = "/shoppingmall/mngr/managerMain.do";
+													type : "POST",
+													url : "/shoppingmall/mg/managerLogout.do",
+													success : function(data) {
+														window.location.href = "/shoppingmall/mg/managerMain.do";
 
-			}
+													}
 
-		});
+												});
 
-	});
+									});
 
-});
+				});
