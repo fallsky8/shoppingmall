@@ -18,8 +18,7 @@ $(document)
 													url : "/shoppingmall/mg/managerLoginPro.do",
 													data : query,
 													success : function(data) {
-														window.location
-																.href="/shoppingmall/mg/manager/managerMain.do";
+														window.location.href = "/shoppingmall/mg/manager/managerMain.do";
 													}
 
 												});
@@ -27,18 +26,21 @@ $(document)
 
 					// [로그아웃]버튼을 클릭하면 자동 실행
 
-					$("#logout").click(function() {
-						$.ajax({
-							
-							type: "POST",
-							url: "/shoppingmall/mg/managerLogout.do",
-							success: function(data){
-								window.location.href="/shoppingmall/mg/managerMain.do";
-								
-							}
+					$("#logout")
+							.click(
+									function() {
+										$
+												.ajax({
 
-						});
+													type : "POST",
+													url : "/shoppingmall/mg/managerLogout.do",
+													success : function(data) {
+														window.location.href = "/shoppingmall/mg/managerMain.do";
 
-					});
+													}
+
+												});
+
+									});
 
 				});
