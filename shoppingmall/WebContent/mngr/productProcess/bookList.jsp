@@ -74,7 +74,7 @@
 							onclick="edit(this)">수정</button>
 					<td width="50">
 						<button id="delete"
-							name="${book.getBook_id},${book.getBook_kind()}"
+							name="${book.getBook_id()},${book.getBook_kind()}"
 							onclick="del(this)">삭제</button>
 					</td>
 				</tr>
