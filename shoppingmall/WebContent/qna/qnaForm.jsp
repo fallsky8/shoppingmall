@@ -7,7 +7,7 @@
 <script src="/shoppingmall/qna/write.js"></script>
 
 <c:if test="${empty sessionScope.id}">
-	<mata http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
+	<meta http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
 </c:if>
 
 <input type="hidden" id="qna_writer" value="${sesstionScope.id}">
