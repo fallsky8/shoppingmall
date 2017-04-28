@@ -19,7 +19,7 @@ $(document)
 													data : query,
 													success : function(data) {
 														window.location
-																.href("/shoppingmall/mg/manager/managerMain.do");
+																.href="/shoppingmall/mg/manager/managerMain.do";
 													}
 
 												});
@@ -33,7 +33,7 @@ $(document)
 							type: "POST",
 							url: "/shoppingmall/mg/managerLogout.do",
 							success: function(data){
-								window.location.href("/shoppingmall/mg/managerMain.do");
+								window.location.href="/shoppingmall/mg/managerMain.do";
 								
 							}
 

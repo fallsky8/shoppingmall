@@ -19,7 +19,7 @@ $(function() {
 				var check = data.substr(loc + len, 1);
 				if (check == "1") {
 					alert("회원정보가 수정되었습니다.");
-					window.location.href("/shoppingmall/modify.do");
+					window.location.href="/shoppingmall/modify.do";
 				} else {
 					alert("비밀번호 틀림");
 					$("#passwd").val("");
@@ -29,6 +29,6 @@ $(function() {
 		});
 	});
 	$("#cancle").click(function() {// [취소] 버튼 클릭
-		window.location.href("/shoppingmall/modify.do");
+		window.location.href="/shoppingmall/modify.do";
 	});
 });

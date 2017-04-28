@@ -21,7 +21,7 @@ $(document).ready(function() {
 					alert("QnA가 수정되었습니다.");
 					var query = "/shoppingmall/bookContent.do?book_id="+book_id;
 					query +="&book_kind="+book_kind;
-					window.location.href(query);
+					window.location.href=query;
 				}else
 					alert("QnA수정 실패");
 			}
@@ -33,7 +33,7 @@ $(document).ready(function() {
 			var book_kind = $("#book_kind").val();
 			var query = "/shoppingmall/bookContent.do?book_id="+book_id;
 			query += "&book_kind="+book_kind;
-			window.location.href(query);
+			window.location.href=query;
 	});
 	
 });

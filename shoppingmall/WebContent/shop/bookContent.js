@@ -22,11 +22,11 @@ $(function() {
 	});
 
 	$("#list").click(function() {// [목록으로] 버튼 클릭
-		window.location.href("/shoppingmall/list.do?book_kind=all");
+		window.location.href = "/shoppingmall/list.do?book_kind=all";
 	});
 
 	$("#shopMain").click(function() {// [메인으로] 버튼 클릭
-		window.location.href("/shoppingmall/index.do");
+		window.location.href = "/shoppingmall/index.do";
 	});
 
 	$("#writeQna").click(function() {// [상품QnA쓰기] 버튼 클릭
@@ -35,7 +35,7 @@ $(function() {
 
 		var query = "/shoppingmall/qnaForm.do?book_id=" + book_id;
 		query += "&book_kind=" + book_kind;
-		window.location.href(query);
+		window.location.href = query;
 	});
 });
 
@@ -44,7 +44,7 @@ function edit(editBtn) {// [수정] 버튼 클릭
 	var arr = rStr.split(",");
 	var query = "/shoppingmall/qnaUpdateForm.do?qna_id=" + arr[0];
 	query += "&book_kind=" + arr[1];
-	window.location.href(query);
+	window.location.href=query;
 }
 
 function del(delBtn) {// [삭제]버튼 클릭
