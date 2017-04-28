@@ -430,6 +430,7 @@ public class QnaDBBean {
 			pstmt.setInt(2, article.getQna_id());
 			pstmt.executeUpdate();
 			x = 1;
+
 			if (rs.next())
 				x = rs.getInt(1);
 
