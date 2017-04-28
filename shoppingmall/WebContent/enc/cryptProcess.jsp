@@ -8,4 +8,4 @@
   PassCrypt dbPro = PassCrypt.getInstance();
   dbPro.cryptProcess();
   out.println("암호화 성공! 꼭 한번만 수행");
-%>
+%> 
