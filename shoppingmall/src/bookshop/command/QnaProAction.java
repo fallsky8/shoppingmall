@@ -13,7 +13,6 @@ public class QnaProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 
 		// 폼에서 입력 후 넘어온 qna 내용
