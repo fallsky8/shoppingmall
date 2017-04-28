@@ -36,7 +36,11 @@ public class CartDBBean {
 
 		try {
 			conn = getConnection();
+<<<<<<< HEAD
 			sql = "insert into cart (bnum, book_id, buyer, book_title, buy_price, buy_count, book_image) values(book_seq.nextval(),?,?,?,?,?,?)";
+=======
+			sql = "insert into cart (cart_id,book_id, buyer, book_title, buy_price, buy_count, book_image) values(cart_seq.nextval,?,?,?,?,?,?)";
+>>>>>>> branch 'master' of https://github.com/fallsky8/shoppingmall
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, cart.getBook_id());
