@@ -362,12 +362,12 @@ public class MngrDBBean {
 			conn = getConnection();
 
 			String sql = "select * from book where book_kind = ? ";
-			sql += "order by reg_date desc ?,?";
+			sql += "order by reg_date desc";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, book_kind);
-			pstmt.setInt(2, 0);
-			pstmt.setInt(3, count);
+			// pstmt.setInt(2, 0);
+			// pstmt.setInt(3, count);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

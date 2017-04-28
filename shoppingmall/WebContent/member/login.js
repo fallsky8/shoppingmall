@@ -45,7 +45,7 @@ $(function() {
 		});
 	});
 
-	$("$cart").click(function() {// [장바구니] 버튼 클릭
+	$("#cart").click(function() {// [장바구니] 버튼 클릭
 		window.location.href = "/shoppingmall/cartList.do";
 	});
 	$("#buy").click(function() {// [구매내역] 버튼 클릭
