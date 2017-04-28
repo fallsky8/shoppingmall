@@ -546,5 +546,5 @@ public class MngrDBBean {
 				}
 		}
 	}
->>>>>>> branch 'master' of https://github.com/fallsky8/shoppingmall
+
 }
