@@ -21,6 +21,7 @@ public class BookContentAction implements CommandAction {
 		// book_id에 해당하는 상품을 얻어냄
 		MngrDBBean bookProcess = MngrDBBean.getInstance();
 		MngrDataBean book = bookProcess.getBook(book_id);
+		System.out.println(book_id + "aaaaaaaaaaaaaaaaaaaaaaaaa");
 
 		// book_id에 해당하는 상품의 QnA 수를 얻어냄
 		QnaDBBean qnaProcess = QnaDBBean.getInstance();
