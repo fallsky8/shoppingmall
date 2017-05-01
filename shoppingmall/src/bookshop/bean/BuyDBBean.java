@@ -95,7 +95,7 @@ public class BuyDBBean {
 				maxDate = val.toString().substring(0, 8);
 				number = val.toString().substring(8);
 				if (compareDate.equals(maxDate)) {
-					if (Integer.parseInt(number + 1) < 10000)
+					if ((Integer.parseInt(number) + 1) < 10000)
 						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
 					else
 						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
