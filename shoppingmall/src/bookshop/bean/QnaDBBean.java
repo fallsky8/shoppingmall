@@ -432,9 +432,15 @@ public class QnaDBBean {
 			x = 1;
 
 			if (rs.next())
+				
 				x = rs.getInt(1);
+		
 
-		} catch (Exception e) {
+		}catch (NullPointerException e) {
+			// TODO: handle exception
+		} 
+		
+		catch (Exception e) {
 			e.printStackTrace();
 
 		} finally {
