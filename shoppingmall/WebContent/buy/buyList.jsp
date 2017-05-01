@@ -28,7 +28,7 @@
 		<c:set var="total" value="0" />
 		<c:forEach var="i" begin="0" end="${buyLists.size()-1}">
 			<c:set var="buylist" value="${buyLists.get(i)}" />
-			<c:set var="pid" value="${buyLists.getBuy_id()}" />
+			<c:set var="pid" value="${buylist.getBuy_id()}" />
 			<c:if test="${i+1 > buyLists.size()-1}">
 				<c:set var="nid" value="0" />
 			</c:if>

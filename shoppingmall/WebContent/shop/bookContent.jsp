@@ -52,7 +52,7 @@
 					<c:if test="${book.getBook_count()>=1 }">
 						수량 : <input type="text" size="5" id="buy_count" value="1">개
 						</c:if>
-					<input type="hidden" id="book_id" value="${book_id }">
+					<input type="hidden" id="book_id" value="${book_id}">
 					<input type="hidden" id="book_image"
 						value="${book.getBook_image() }">
 					<input type="hidden" id="book_title"
