@@ -110,8 +110,8 @@ public class QnaDBBean {
 			conn = getConnection();
 
 			// 쿼리를 작성 : board 테이블에 새로운 레코드 추가
-			sql = "insert into qna(book_id,book_title,qna_writer,qna_content,";
-			sql += "group_id,qora,reply,reg_date)values(?,?,?,?,?,?,?,?)";
+			sql = "insert into qna(qna_id,book_id,book_title,qna_writer,qna_content,";
+			sql += "group_id,qora,reply,reg_date)values(qna_seq.nextval,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, article.getBook_id());
 			pstmt.setString(2, article.getBook_title());
@@ -432,9 +432,15 @@ public class QnaDBBean {
 			x = 1;
 
 			if (rs.next())
+				
 				x = rs.getInt(1);
+		
 
-		} catch (Exception e) {
+		}catch (NullPointerException e) {
+			// TODO: handle exception
+		} 
+		
+		catch (Exception e) {
 			e.printStackTrace();
 
 		} finally {

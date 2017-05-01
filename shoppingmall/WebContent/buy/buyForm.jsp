@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <link rel="stylesheet" href="/shoppingmall/css/style.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/shoppingmall/buy/buyForm.js"></script>
 
 <c:if test="${empty sessionScope.id}">
 	<meta http-equiv="Refresh" content="0;url=/shoppingmall/index.do">
@@ -95,7 +94,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="주문">
-					<button id="cancle">취소</button></td>
+					<button formaction="/shoppingmall/index.do" id="can123">취소123</button></td>
 			</tr>
 		</table>
 	</form>
