@@ -29,7 +29,7 @@ public class BuyDBBean {
 		return ds.getConnection();
 	}
 
-	// bank 테이블에 있는 전체 레코드를 얻어내는 메소드
+	// bank테이블에 있는 전체 레코드를 얻어내는 메소드
 	public List<String> getAccount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -65,7 +65,7 @@ public class BuyDBBean {
 		return accountList;
 	}
 
-	// 구매 테이블인 buy에 구매 목록 등록
+	// 구매 테이블인 buy에 구매목록 등록
 	@SuppressWarnings("resource")
 	public void insertBuy(List<CartDataBean> lists, String id, String account, String deliveryName, String deliveryTel,
 			String deliveryAddress) throws Exception {
@@ -78,8 +78,8 @@ public class BuyDBBean {
 		String number = "";
 		String todayDate = "";
 		String compareDate = "";
-		int buyId = 0;
-		int nowCount;
+		long buyId = 0;
+		short nowCount;
 		try {
 			conn = getConnection();
 			reg_date = new Timestamp(System.currentTimeMillis());
@@ -96,26 +96,26 @@ public class BuyDBBean {
 				number = val.toString().substring(8);
 				if (compareDate.equals(maxDate)) {
 					if ((Integer.parseInt(number) + 1) < 10000)
-						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
+						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
 					else
-						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
+						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
 				} else {
 					compareDate += "00001";
-					buyId = (int) Long.parseLong(compareDate);
+					buyId = Long.parseLong(compareDate);
 				}
 			} else {
 				compareDate += "00001";
-				buyId = (int) Long.parseLong(compareDate);
+				buyId = Long.parseLong(compareDate);
 			}
-			// 110~157라인 까지 하나의 트랜잭션으로 처리
+			// 105~154라인까지 하나의 트랜잭션으로 처리
 			conn.setAutoCommit(false);
 			for (int i = 0; i < lists.size(); i++) {
-				// 해당 아이디에 대한 cart 테이블의 레코드를 가져온 후 buy 테이블에 추가
+				// 해당 아이디에 대한 cart테이블 레코드를을 가져온후 buy테이블에 추가
 				CartDataBean cart = lists.get(i);
 
-				sql = "insert into buy(buy_id,buyer,book_id,book_title,buy_price,buy_count,";
+				sql = "insert into buy (buy_id,buyer,book_id,book_title,buy_price,buy_count,";
 				sql += "book_image,buy_date,account,deliveryName,deliveryTel,deliveryAddress)";
-				sql += " values(?,?,?,?,?,?,?,?,?,?,?,?)";
+				sql += " values (?,?,?,?,?,?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(sql);
 
 				pstmt.setLong(1, buyId);
@@ -132,20 +132,21 @@ public class BuyDBBean {
 				pstmt.setString(12, deliveryAddress);
 				pstmt.executeUpdate();
 
-				// 상품이 구매되었으므로 book 테이블의 상품 수량을 재조정함
+				// 상품이 구매되었으므로 book테이블의 상품수량을 재조정함
 				pstmt = conn.prepareStatement("select book_count from book where book_id=?");
 				pstmt.setInt(1, cart.getBook_id());
 				rs = pstmt.executeQuery();
 				rs.next();
-				System.out.println(rs.getInt(1));
-				nowCount = (rs.getInt(1) - 1); // 실무에서는 구매 수량을 뺄 것
+
+				nowCount = (short) (rs.getShort(1) - 1);
+
 				sql = "update book set book_count=? where book_id=?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, nowCount);
+
+				pstmt.setShort(1, nowCount);
 				pstmt.setInt(2, cart.getBook_id());
 
 				pstmt.executeUpdate();
-
 			}
 
 			pstmt = conn.prepareStatement("delete from cart where buyer=?");
@@ -168,16 +169,10 @@ public class BuyDBBean {
 					conn.close();
 				} catch (SQLException ex) {
 				}
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException ex) {
-
-				}
 		}
 	}
 
-	// id에 해당하는 buy 테이블의 레코드 수를 얻어내는 메소드
+	// id에 해당하는 buy테이블의 레코드수를 얻어내는 메소드
 	public int getListCount(String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -217,7 +212,7 @@ public class BuyDBBean {
 		return x;
 	}
 
-	// buy 테이블의 전체 레코드 수를 얻어내는 메소드
+	// buy테이블의 전체 레코드수를 얻어내는 메소드
 	public int getListCount() throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -256,7 +251,7 @@ public class BuyDBBean {
 		return x;
 	}
 
-	// id에 해당하는 buy 테이블의 구매 목록을 얻어내는 메소드
+	// id에 해당하는 buy테이블의 구매목록을 얻어내는 메소드
 	public List<BuyDataBean> getBuyList(String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -268,7 +263,7 @@ public class BuyDBBean {
 		try {
 			conn = getConnection();
 
-			sql = "select* from buy where buyer=?";
+			sql = "select * from buy where buyer = ?";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, id);
@@ -283,7 +278,7 @@ public class BuyDBBean {
 				buy.setBook_id(rs.getInt("book_id"));
 				buy.setBook_title(rs.getString("book_title"));
 				buy.setBuy_price(rs.getInt("buy_price"));
-				buy.setBuy_count(rs.getInt("buy_count"));
+				buy.setBuy_count(rs.getByte("buy_count"));
 				buy.setBook_image(rs.getString("book_image"));
 				buy.setSanction(rs.getString("sanction"));
 
@@ -323,7 +318,7 @@ public class BuyDBBean {
 		try {
 			conn = getConnection();
 
-			sql = "select* from buy";
+			sql = "select * from buy";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -337,7 +332,7 @@ public class BuyDBBean {
 				buy.setBook_id(rs.getInt("book_id"));
 				buy.setBook_title(rs.getString("book_title"));
 				buy.setBuy_price(rs.getInt("buy_price"));
-				buy.setBuy_count(rs.getInt("buy_count"));
+				buy.setBuy_count(rs.getByte("buy_count"));
 				buy.setBook_image(rs.getString("book_image"));
 				buy.setBuy_date(rs.getTimestamp("buy_date"));
 				buy.setAccount(rs.getString("account"));
@@ -348,7 +343,6 @@ public class BuyDBBean {
 
 				lists.add(buy);
 			}
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
