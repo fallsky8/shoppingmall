@@ -57,7 +57,7 @@
 						value="${book.getBook_image() }">
 					<input type="hidden" id="book_title"
 						value="${book.getBook_title() }">
-					<input type="hidden" id="book_price" value="${rPrice }">
+					<input type="hidden" id="buy_price" value="${rPrice }">
 					<input type="hidden" id="book_kind" value="${book_kind }">
 					<input type="hidden" id="buyer" value="${sessionScope.id }">
 					<button id="insertCart">장바구니에 담기</button>

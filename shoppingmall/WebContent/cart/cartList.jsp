@@ -54,7 +54,7 @@
 							onclick="editSu(this)">수정</button></td>
 					<td align="center" width="150"><c:set var="amount"
 							value="${cart.getBuy_count()*cart.getBuy_price()}" /> <c:set
-							var="totla" value="${total+amount}" /> <fmt:formatNumber
+							var="total" value="${total+amount}" /> <fmt:formatNumber
 							value="${amount}" type="number" pattern="#,##0" />원
 						<button id="deleteList" name="${cart.getCart_id()}"
 							onclick="delList(this)">삭제</button></td>
@@ -62,7 +62,7 @@
 			</c:forEach>
 			<tr>
 				<td colspan="4" align="right" class="b">총 금액: <fmt:formatNumber
-						value="${total}" type="number" pattern="#,##0" />원
+						value="${total2}" type="number" pattern="#,##0" />원
 				</td>
 			</tr>
 			<tr height="10">
