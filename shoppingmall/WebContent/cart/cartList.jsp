@@ -62,7 +62,7 @@
 			</c:forEach>
 			<tr>
 				<td colspan="4" align="right" class="b">총 금액: <fmt:formatNumber
-						value="${total}" type="number" pattern="#,##0" />원
+						value="${total2}" type="number" pattern="#,##0" />원
 				</td>
 			</tr>
 			<tr height="10">
