@@ -95,7 +95,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="주문">
-					<button id="cancle">취소</button></td>
+					<button id="cancle2">취소</button></td>
 			</tr>
 		</table>
 	</form>

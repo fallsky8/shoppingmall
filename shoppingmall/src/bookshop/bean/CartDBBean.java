@@ -45,6 +45,12 @@ public class CartDBBean {
 			pstmt.setInt(4, cart.getBuy_price());
 			pstmt.setInt(5, cart.getBuy_count());
 			pstmt.setString(6, cart.getBook_image());
+			System.out.println(cart.getBook_id());
+			System.out.println(cart.getBuyer());
+			System.out.println(cart.getBook_title());
+			System.out.println(cart.getBuy_price());
+			System.out.println(cart.getBuy_count());
+			System.out.println(cart.getBook_image());
 
 			pstmt.executeUpdate();
 		} catch (Exception ex) {

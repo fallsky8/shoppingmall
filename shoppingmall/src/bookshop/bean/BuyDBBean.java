@@ -131,13 +131,11 @@ public class BuyDBBean {
 				pstmt.setString(11, deliveryTel);
 				pstmt.setString(12, deliveryAddress);
 				pstmt.executeUpdate();
-
 				// 상품이 구매되었으므로 book테이블의 상품수량을 재조정함
 				pstmt = conn.prepareStatement("select book_count from book where book_id=?");
 				pstmt.setInt(1, cart.getBook_id());
 				rs = pstmt.executeQuery();
 				rs.next();
-
 				nowCount = (short) (rs.getShort(1) - 1);
 
 				sql = "update book set book_count=? where book_id=?";
