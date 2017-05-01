@@ -78,7 +78,7 @@ public class BuyDBBean {
 		String number = "";
 		String todayDate = "";
 		String compareDate = "";
-		long buyId = 0;
+		int buyId = 0;
 		int nowCount;
 		try {
 			conn = getConnection();
@@ -96,16 +96,16 @@ public class BuyDBBean {
 				number = val.toString().substring(8);
 				if (compareDate.equals(maxDate)) {
 					if (Integer.parseInt(number + 1) < 10000)
-						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
+						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
 					else
-						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
+						buyId = (int) Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
 				} else {
 					compareDate += "00001";
-					buyId = Long.parseLong(compareDate);
+					buyId = (int) Long.parseLong(compareDate);
 				}
 			} else {
 				compareDate += "00001";
-				buyId = Long.parseLong(compareDate);
+				buyId = (int) Long.parseLong(compareDate);
 			}
 			// 110~157라인 까지 하나의 트랜잭션으로 처리
 			conn.setAutoCommit(false);
@@ -137,10 +137,9 @@ public class BuyDBBean {
 				pstmt.setInt(1, cart.getBook_id());
 				rs = pstmt.executeQuery();
 				rs.next();
-
-				nowCount = (int) (rs.getInt(1) - 1); // 실무에서는 구매 수량을 뺄 것
-
-				sql = "update book set book_count=? where book-id=?";
+				System.out.println(rs.getInt(1));
+				nowCount = (rs.getInt(1) - 1); // 실무에서는 구매 수량을 뺄 것
+				sql = "update book set book_count=? where book_id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, nowCount);
 				pstmt.setInt(2, cart.getBook_id());
@@ -168,6 +167,12 @@ public class BuyDBBean {
 				try {
 					conn.close();
 				} catch (SQLException ex) {
+				}
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+
 				}
 		}
 	}

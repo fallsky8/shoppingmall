@@ -14,7 +14,7 @@
 
 <div id="goShop">
 	<button id="conShopping">쇼핑계속</button>
-	<button id="shopMain">메인으로</button>
+	<button id="shopMains">메인으로</button>
 </div>
 
 <div id="buyList">

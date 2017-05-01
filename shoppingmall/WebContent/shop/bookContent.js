@@ -3,7 +3,7 @@ $(function() {
 		var buyer = $("#buyer").val();
 		var book_kind = $("#book_kind").val();
 		var query = {
-			book_id : $("#book_kind").val(),
+			book_id : $("#book_id").val(),
 			buy_count : $("#buy_count").val(),
 			book_image : $("#book_image").val(),
 			book_title : $("#book_title").val(),
@@ -44,7 +44,7 @@ function edit(editBtn) {// [수정] 버튼 클릭
 	var arr = rStr.split(",");
 	var query = "/shoppingmall/qnaUpdateForm.do?qna_id=" + arr[0];
 	query += "&book_kind=" + arr[1];
-	window.location.href=query;
+	window.location.href = query;
 }
 
 function del(delBtn) {// [삭제]버튼 클릭
